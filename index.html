@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Demo CRUD Data Interaktif</title>
+  <style>
+    /* Global Styling */
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      padding: 20px;
+      background: #f9f9f9;
+      color: #333;
+    }
+
+    h1 {
+      text-align: center;
+      margin-bottom: 30px;
+      color: #007bff;
+    }
+
+    h2 {
+      font-size: 1.2rem;
+      margin-bottom: 15px;
+      color: #444;
+    }
+
+    /* Container */
+    .form-container {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 30px;
+      margin-bottom: 30px;
+      justify-content: center;
+    }
+
+    /* Card Style untuk Form */
+    .card {
+      background: #fff;
+      border-radius: 12px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+      padding: 20px;
+      width: 320px;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
+    }
+
+    /* Input Form */
+    .form-group {
+      margin-bottom: 12px;
+    }
+
+    label {
+      display: block;
+      font-weight: 500;
+      margin-bottom: 5px;
+    }
+
+    input[type="text"],
+    input[type="number"],
+    input[type="email"] {
+      width: 100%;
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      font-size: 14px;
+      transition: border-color 0.2s ease;
+    }
+
+    input:focus {
+      border-color: #007bff;
+      outline: none;
+      box-shadow: 0 0 5px rgba(0, 123, 255, 0.2);
+    }
+
+    /* Buttons */
+    button {
+      padding: 10px 15px;
+      cursor: pointer;
+      font-size: 14px;
+      font-weight: 500;
+      background-color: #007bff;
+      color: white;
+      border: none;
+      border-radius: 6px;
+      transition: background 0.3s ease, transform 0.2s ease;
+    }
+
+    button:hover {
+      background-color: #0056b3;
+      transform: translateY(-2px);
+    }
+
+    .delete-btn {
+      background-color: #dc3545;
+    }
+
+    .delete-btn:hover {
+      background-color: #c82333;
+    }
+
+    /* Table */
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 10px;
+      background: white;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    th, td {
+      padding: 12px;
+      text-align: left;
+      border-bottom: 1px solid #eee;
+    }
+
+    th {
+      background-color: #007bff;
+      color: white;
+      font-weight: 600;
+      text-align: center;
+    }
+
+    td {
+      text-align: center;
+    }
+
+    tr:hover {
+      background-color: #f1f9ff;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Manajemen Data Interaktif (CRUD)</h1>
+
+  <div class="form-container">
+    <div class="card" id="addDataForm">
+      <h2>Tambah Data Baru</h2>
+      <div class="form-group">
+        <label>Nama:</label>
+        <input type="text" id="inputNama" placeholder="Masukkan nama">
+      </div>
+      <div class="form-group">
+        <label>Umur:</label>
+        <input type="number" id="inputUmur" placeholder="Masukkan umur">
+      </div>
+      <div class="form-group">
+        <label>Alamat:</label>
+        <input type="text" id="inputAlamat" placeholder="Masukkan alamat">
+      </div>
+      <div class="form-group">
+        <label>Email:</label>
+        <input type="email" id="inputEmail" placeholder="contoh@email.com">
+      </div>
+      <button id="submitDataBtn">Tambahkan Data</button>
+    </div>
+    
+    <div class="card" id="deleteByNameForm">
+      <h2>Hapus Berdasarkan Nama</h2>
+      <div class="form-group">
+        <label>Nama yang Dihapus:</label>
+        <input type="text" id="inputNamaHapus" placeholder="Masukkan nama">
+      </div>
+      <button id="deleteDataByNameBtn" class="delete-btn">Hapus Data</button>
+    </div>
+  </div>
+
+  <h2>Daftar Data Saat Ini</h2>
+  <table id="dataTable">
+    <thead>
+      <tr>
+        <th>No</th>
+        <th>Nama</th>
+        <th>Umur</th>
+        <th>Alamat</th>
+        <th>Email</th>
+        <th>Aksi</th>
+      </tr>
+    </thead>
+    <tbody>
+    </tbody>
+  </table>
+
+  <script type="module" src="js/main.js"></script>
+</body>
+</html>
